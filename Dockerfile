@@ -7,4 +7,4 @@ COPY . .
 ENV ASPNETCORE_URLS=http://+:8080
 ENV ASPNETCORE_ENVIRONMENT=Development
 
-ENTRYPOINT ["dotnet", "run", "--project", "src/Rise.Server/Rise.Server.csproj"]
+ENTRYPOINT ["dotnet", "run", "--no-launch-profile", "--project", "src/Rise.Server/Rise.Server.csproj"]
