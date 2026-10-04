@@ -1,4 +1,7 @@
 node {
+    stage('Checkout') {
+        checkout scm
+    }
     stage('Preparation') {
         catchError(buildResult: 'SUCCESS') {
             sh 'docker stop riserunning'
