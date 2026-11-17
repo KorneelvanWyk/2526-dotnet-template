@@ -42,14 +42,14 @@ pipeline {
             steps {
                 sh '''
                     APP_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' riserunning)
-                    for i in $(seq 1 20); do
+                    for i in $(seq 1 40); do
                         curl -sf -o /dev/null http://$APP_IP:8080/ && exit 0
                         sleep 3
                     done
                     exit 1
                 '''
             }
-        }
+        }        
 
         stage('Deploy production') {
             when { expression { params.TARGET == 'production' } }
