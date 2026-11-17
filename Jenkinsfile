@@ -72,7 +72,7 @@ pipeline {
             when { expression { params.TARGET == 'production' } }
             steps {
                 sh '''
-                    for i in $(seq 1 20); do
+                    for i in $(seq 1 40); do
                         curl -sf -o /dev/null http://$PROD_HOST:5001/ && exit 0
                         sleep 3
                     done
